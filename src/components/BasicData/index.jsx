@@ -81,10 +81,10 @@ export const BasicData = () => {
   }, [values, addValue]);
 
   return (
-    <div className="col-span-3 shadow-md p-5 rounded ">
+    <div className="lg:col-span-3 shadow-md p-5 rounded ">
       <CardTitle title="Dados Básicos:" />
 
-      <form className="flex gap-5">
+      <form className="flex flex-wrap gap-5">
         <Fieldset
           label="Investimento Inicial:"
           prefix="R$ "

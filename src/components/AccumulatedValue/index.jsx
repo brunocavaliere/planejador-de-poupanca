@@ -40,25 +40,25 @@ export const AccumulatedValue = () => {
             color="bg-blue"
             title="Investimento Mensal Acumulado"
             subtitle={`R$ ${Intl.NumberFormat("pt-BR").format(value.month)}`}
-            percent={`${+(
-              Math.round((value.month / sum) * 100 + "e+2") + "e-2"
-            )}%`}
+            percent={`${
+              +(Math.round((value.month / sum) * 100 + "e+2") + "e-2") || 0
+            }%`}
           />
           <ValueItem
             color="bg-purple"
             title="Juros"
             subtitle={`R$ ${Intl.NumberFormat("pt-BR").format(value.fee)}`}
-            percent={`${+(
-              Math.round((value.fee / sum) * 100 + "e+2") + "e-2"
-            )}%`}
+            percent={`${
+              +(Math.round((value.fee / sum) * 100 + "e+2") + "e-2") || 0
+            }%`}
           />
           <ValueItem
             color="bg-green-400"
             title="Investimento Inicial"
             subtitle={`R$ ${Intl.NumberFormat("pt-BR").format(value.initial)}`}
-            percent={`${+(
-              Math.round((value.initial / sum) * 100 + "e+2") + "e-2"
-            )}%`}
+            percent={`${
+              +(Math.round((value.initial / sum) * 100 + "e+2") + "e-2") || 0
+            }%`}
           />
         </div>
       )}

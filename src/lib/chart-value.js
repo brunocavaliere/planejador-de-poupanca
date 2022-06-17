@@ -7,14 +7,22 @@ export async function calculatorChart({
   time,
   fee,
 }) {
-  for (var i = 0; i <= time; i++) {
+  for (var i = valueInvestedChart.length; i >= 0; i--) {
+    valueInvestedChart.pop();
+  }
+
+  for (var i = valueAccumulatedChart.length; i >= 0; i--) {
+    valueAccumulatedChart.pop();
+  }
+
+  for (var i = 0; i < time; i++) {
     let x = initialValue;
     x += parcelValue * i;
     valueInvestedChart.push(+(Math.round(x + "e+2") + "e-2"));
   }
 
   const monthFee = Math.pow(1 + fee / 100, 1 / 12) - 1;
-  for (var i = 0; i <= time; i++) {
+  for (var i = 0; i < time; i++) {
     const accumulatedValue =
       initialValue * Math.pow(1 + monthFee, i) +
       (parcelValue * (Math.pow(1 + monthFee, i) - 1)) / monthFee;

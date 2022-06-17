@@ -27,8 +27,6 @@ export async function calculator({ initialValue, parcelValue, time, fee }) {
     initial: +(Math.round(initialValue + "e+2") + "e-2"),
   };
 
-  console.log("value", value);
-
   values.push(value);
 
   return value;

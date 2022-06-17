@@ -13,8 +13,8 @@ export default function Home() {
         <title>Planejador de Poupança</title>
       </Head>
 
-      <main className="w-screen h-screen pt-8 pb-12">
-        <div className="container mx-auto px-5">
+      <main className="w-screen h-screen">
+        <div className="container mx-auto pt-8 px-5 pb-12">
           <Brand />
 
           <Content>

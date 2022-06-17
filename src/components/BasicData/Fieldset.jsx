@@ -15,7 +15,7 @@ export const Fieldset = ({
   const inputRef = useRef(null);
 
   return (
-    <fieldset className="w-full">
+    <fieldset className="w-full max-w-[156px] lg:max-w-[292px]">
       <label className="block mb-2.5 text-2xs font-medium leading-none text-gray-900">
         {label}
       </label>

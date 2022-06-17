@@ -72,18 +72,27 @@ export const PieOverview = () => {
         innerSize: "85%",
         zMin: 0,
         name: "values",
-        data: [
+        data: data && [
           {
             name: "Month",
-            y: data && data.getValuesAccumulated[0].month,
+            y:
+              data.getValuesAccumulated[0].month === 0
+                ? 100
+                : data.getValuesAccumulated[0].month,
           },
           {
             name: "Fee",
-            y: data && data.getValuesAccumulated[0].fee,
+            y:
+              data.getValuesAccumulated[0].fee === 0
+                ? 100
+                : data.getValuesAccumulated[0].fee,
           },
           {
             name: "Initial",
-            y: data && data.getValuesAccumulated[0].initial,
+            y:
+              data.getValuesAccumulated[0].initial === 0
+                ? 100
+                : data.getValuesAccumulated[0].initial,
           },
         ],
         dataLabels: [

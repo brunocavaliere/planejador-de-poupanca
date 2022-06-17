@@ -15,15 +15,7 @@ export const COMPARE_CHART = gql`
 export const CompareCharts = () => {
   const { data } = useQuery(COMPARE_CHART);
 
-  useEffect(() => {
-    console.log("data", data && data);
-  }, [data]);
-
   const options = {
-    chart: {
-      height: 420,
-      width: 800,
-    },
     title: {
       style: {
         display: "none",
@@ -39,8 +31,19 @@ export const CompareCharts = () => {
       enabled: false,
     },
     tooltip: {
-      pointFormat:
-        '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>',
+      formatter() {
+        let s = "<span><strong>Mês: </strong>" + this.points[0].x + "</span>";
+        this.points.forEach((point) => {
+          s +=
+            "<br/><span><strong>" +
+            point.series.name +
+            ": </strong></span>R$ " +
+            Intl.NumberFormat("pt-BR").format(point.y) +
+            "</b>";
+        });
+
+        return s;
+      },
       changeDecimals: 2,
       valueDecimals: 2,
     },
@@ -83,7 +86,7 @@ export const CompareCharts = () => {
   };
 
   return (
-    <div className="col-span-2 shadow-md p-5 rounded">
+    <div className="lg:col-span-2 shadow-md p-5 rounded">
       <CardTitle title="Projeção Financeira:" />
 
       <div>
